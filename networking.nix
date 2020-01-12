@@ -5,7 +5,7 @@
 
     firewall = {
       allowPing = true;
-      allowedTCPPorts = [ 8080 ];
+      allowedTCPPorts = [ 8080 443 ];
     };
   };
 
