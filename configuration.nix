@@ -23,6 +23,9 @@
   ];
 
   programs.fish.enable = true;
+  systemd.services = {
+      discordbot = import ./services/discordbot.nix { inherit pkgs; };
+  };
 
   # System
   boot = {
