@@ -24,7 +24,7 @@
 
   programs.fish.enable = true;
   systemd.services = {
-      discordbot = import ./services/discordbot.nix { inherit pkgs; };
+      polymath = import ./services/polymath.nix { inherit pkgs; };
   };
 
   # System
