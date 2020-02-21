@@ -1,5 +1,14 @@
 { config, pkgs, ... }:
 
+
+with pkgs;
+let
+  polymath-packages = python-packages: with python-packages; [
+    aiohttp
+  ]; 
+  python-polymath-debug = python3.withPackages polymath-packages;
+in
+
 {
   imports =
     [
@@ -19,7 +28,7 @@
 
   # Packages
   environment.systemPackages = with pkgs; [
-     wget git python3
+     wget git python-polymath-debug
   ];
 
   programs.fish.enable = true;
