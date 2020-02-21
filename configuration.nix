@@ -19,7 +19,7 @@
 
   # Packages
   environment.systemPackages = with pkgs; [
-     wget git
+     wget git python3
   ];
 
   programs.fish.enable = true;
