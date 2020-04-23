@@ -17,10 +17,10 @@ in
       ./users.nix
     ];
 
-  i18n = {
-     consoleFont = "Lat2-Terminus16";
-     consoleKeyMap = "fr";
-     defaultLocale = "fr_FR.UTF-8";
+  i18n.defaultLocale = "fr_FR.UTF-8";
+  console = { 
+    font = "Lat2-Terminus16";
+    keyMap = "fr";
   };
 
   # Time zone
