@@ -1,7 +1,7 @@
 { lib, ... }: {
 
   networking = {
-    hostName = "hestia";
+    hostName = "atlas";
 
     firewall = {
       allowPing = true;
