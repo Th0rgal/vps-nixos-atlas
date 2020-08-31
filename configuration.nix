@@ -15,6 +15,7 @@ in
       ./hardware-configuration.nix
       ./networking.nix
       ./users.nix
+      ./web.nix
     ];
 
   i18n = {
