@@ -42,6 +42,7 @@
                         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
                         proxy_redirect off;
                         proxy_buffering off;
+                        charset UTF-8;
                     '';
                     proxyPass = "http://polymath.aiohttp"; 
                 };
