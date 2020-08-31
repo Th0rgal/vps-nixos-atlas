@@ -26,7 +26,7 @@
             ({
             http2 = true;
             enableACME = true;
-            forceSSL = true;
+            forceSSL = false;
             extraConfig = ''
                 charset UTF-8;
             '';
