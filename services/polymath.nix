@@ -10,7 +10,7 @@ in {
   serviceConfig = {
     Type = "simple";
     User = "thomas";
-    ExecStart = polymath + "/bin/python ./run";;
+    ExecStart = polymath + "/bin/python ./run";
     WorkingDirectory = "/home/thomas/services/polymath";
     Restart = "on-failure";
   };
