@@ -1,26 +1,21 @@
 { pkgs }:
 with pkgs;
 let
-  my-python-packages = python-packages: with python-packages; [
-    aiohttp
-  ];
-  python-with-my-packages = python3.withPackages my-python-packages;
-in
-  {
-      description = "PROGRAMMESWAG";
-      after = [ "network.target" ];
+  polymath = python38.withPackages
+    (python-packages: with python-packages; [ cython aiohttp toml ]);
+in {
+  description = "PROGRAMMESWAG";
+  after = [ "network.target" ];
 
-      serviceConfig = {
-          Type = "simple";
-          User = "thomas";
-          ExecStart = python-with-my-packages + "/bin/python ./server.py";
-          WorkingDirectory = "/home/thomas/services/polymath";
-          Restart = "on-failure";
-      };
+  serviceConfig = {
+    Type = "simple";
+    User = "thomas";
+    ExecStart = "./run";
+    WorkingDirectory = "/home/thomas/services/polymath";
+    Restart = "on-failure";
+  };
 
-      environment = {
-          PYTHON_HOME = python-with-my-packages;
-      };
+  environment = { PYTHON_HOME = polymath; };
 
-      wantedBy = [ "multi-user.target" ];
+  wantedBy = [ "multi-user.target" ];
 }
