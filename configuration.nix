@@ -1,40 +1,29 @@
 { config, pkgs, ... }:
 
-
 with pkgs;
 let
-  polymath-packages = python-packages: with python-packages; [
-    aiohttp
-  ]; 
+  polymath-packages = python-packages: with python-packages; [ aiohttp ];
   python-polymath-debug = python3.withPackages polymath-packages;
-in
 
-{
+in {
   imports =
-    [
-      ./hardware-configuration.nix
-      ./networking.nix
-      ./users.nix
-      ./web.nix
-    ];
+    [ ./hardware-configuration.nix ./networking.nix ./users.nix ./web.nix ];
 
-  i18n = {
-    defaultLocale = "fr_FR.UTF-8";
-    consoleFont = "Lat2-Terminus16";
-    consoleKeyMap = "fr";
+  i18n.defaultLocale = "fr_FR.UTF-8";
+  console = {
+    font = "Lat2-Terminus16";
+    keyMap = "fr";
   };
 
   # Time zone
   time.timeZone = "Europe/Zurich";
 
   # Packages
-  environment.systemPackages = with pkgs; [
-     wget git python-polymath-debug
-  ];
+  environment.systemPackages = with pkgs; [ wget git python-polymath-debug ];
 
   programs.fish.enable = true;
   systemd.services = {
-      polymath = import ./services/polymath.nix { inherit pkgs; };
+    polymath = import ./services/polymath.nix { inherit pkgs; };
   };
 
   # System
