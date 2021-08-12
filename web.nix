@@ -9,6 +9,7 @@
         recommendedGzipSettings = true;
         recommendedOptimisation = true;
         recommendedProxySettings = true;
+        clientMaxBodySize = 100m;
 
         sslCiphers = "ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305";
 
